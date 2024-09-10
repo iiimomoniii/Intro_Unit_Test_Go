@@ -1,4 +1,4 @@
-package services_test
+package tests
 
 import (
 	"fmt"
@@ -57,8 +57,9 @@ import (
 // }
 
 // ------------------------------------------------------//
-//loop check all grade
-
+// loop check all grade
+// how to run function
+// go test gotest/tests -run="TestCheckGrade" -v
 func TestCheckGrade(t *testing.T) {
 
 	type testCase struct {
