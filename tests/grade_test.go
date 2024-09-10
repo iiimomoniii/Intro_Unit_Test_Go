@@ -4,10 +4,13 @@ import (
 	"fmt"
 	"gotest/services"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 //test grade by grade function
 
+// go test ./tests -run="TestCheckGradeA" -v
 // func TestCheckGradeA(t *testing.T) {
 // 	grade := services.CheckGrade(80)
 // 	expected := "A"
@@ -18,6 +21,7 @@ import (
 
 // }
 
+// go test ./tests -run="TestCheckGradeB" -v
 // func TestCheckGradeB(t *testing.T) {
 // 	grade := services.CheckGrade(70)
 // 	expected := "B"
@@ -31,9 +35,9 @@ import (
 
 // test all grades in 1 function
 // how to run function
-// go test gotest/services -run="TestCheckGrade" -v
+// go test ./tests -run="TestCheckGrade" -v
 // how to run sub function
-// go test gotest/services -run="TestCheckGrade/A" -v
+// go test ./tests -run="TestCheckGrade/A" -v
 
 // func TestCheckGrade(t *testing.T) {
 
@@ -81,9 +85,13 @@ func TestCheckGrade(t *testing.T) {
 		t.Run(c.grade, func(t *testing.T) {
 			grade := services.CheckGrade(c.score)
 
-			if grade != c.expected {
-				t.Errorf("got %v expected %v", grade, c.expected)
-			}
+			// Refactor code from
+			// if grade != c.expected {
+			// 	t.Errorf("got %v expected %v", grade, c.expected)
+			// }
+
+			//Refactor code to
+			assert.Equal(t, c.expected, grade)
 		})
 	}
 
@@ -92,9 +100,9 @@ func TestCheckGrade(t *testing.T) {
 // ------------------------------------------------------//
 // benchmark check grade
 // how to benchmark all
-// go test gotest/services -bench=.
+// go test ./tests -bench=.
 // how to benchmark all and check memory
-// go test gotest/services -bench=. -benchmem
+// go test ./tests -bench=. -benchmem
 
 func BenchmarkCheckGrade(b *testing.B) {
 	for i := 0; i < b.N; i++ {
