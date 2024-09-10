@@ -14,14 +14,14 @@ go test gotest/services -v
 go test gotest/services -v -run=TestHello
 
 # code tdd 
-# create for function test before function in services
+create for function test before function in services
 
 # config vscode
-# hilight expected cover test case
+## hilight expected cover test case
 cmd + shift + p 
 open setting user (JSON)
 
-# assign this code in to file
+## assign this code in to file
 "go.coverOnSave": true,
 "go.coverOnSingleTest": true,
 "go.coverageDecorator": {
