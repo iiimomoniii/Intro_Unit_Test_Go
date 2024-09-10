@@ -1,13 +1,11 @@
 # init project
 go mod init gotest
 
-## create main.go
-
-## create repositories
-
-## create services
-
-## create handlers
+# create env
+create main.go
+create repositories
+create services
+create handlers
 
 # test all in services (module of go.mod/package of services)
 go test gotest/services -v
