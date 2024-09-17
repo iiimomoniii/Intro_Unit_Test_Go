@@ -18,6 +18,7 @@ func NewPromotionService(promotionRepository repositories.PromotionRepository) P
 }
 
 func (s promotionService) CalculateDiscount(amount int) (int, error) {
+
 	if amount <= 0 {
 		return 0, utils.ErrZeroAmount
 	}
